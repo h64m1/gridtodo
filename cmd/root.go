@@ -31,12 +31,27 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "gridtodo",
 	Short: "Convert yaml to grid todo with markdown table format",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Long: `gridtodo:
+	gridtoto is a command line tool to create a matrix composed of cells (Mandal-Art),
+	which displaying relevant keywords you come up with, from a yaml file.
+	gridtodo command generate a matrix of keywords with markdown table format.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+* generate a yaml file
+	Use subcommand 'generate' to create template yaml file for gridtodo
+	$ gridtodo generate
+	where default yaml file name is 'todo.yaml'.
+
+	Write filename with 'generate' command if you want to specify the output yaml file
+	$ gridtodo generate test.yaml
+	which displays markdown table in standard output based on the test.yaml
+
+* convert yaml to markdown table
+	Convert a yaml file to markdown table by 'show' command
+	$ gridtodo show test.yaml
+
+	Redirect to markdown file in order to export resulting markdown table.
+	$ gridtodo show test.yaml > test.md
+	`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
