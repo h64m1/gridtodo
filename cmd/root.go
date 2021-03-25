@@ -36,15 +36,6 @@ var rootCmd = &cobra.Command{
 	which displaying relevant keywords you come up with, from a yaml file.
 	gridtodo command generate a matrix of keywords with markdown table format.
 
-* generate a yaml file
-	Use subcommand 'generate' to create template yaml file for gridtodo
-	$ gridtodo generate
-	where default yaml file name is 'todo.yaml'.
-
-	Write filename with 'generate' command if you want to specify the output yaml file
-	$ gridtodo generate test.yaml
-	which displays markdown table in standard output based on the test.yaml
-
 * convert yaml to markdown table
 	Convert a yaml file to markdown table by 'show' command
 	$ gridtodo show test.yaml
@@ -66,8 +57,6 @@ func Execute() {
 }
 
 func init() {
-	fmt.Println("init")
-
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.

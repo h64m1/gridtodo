@@ -22,11 +22,9 @@ THE SOFTWARE.
 package main
 
 import (
-	"fmt"
 	"gridtodo/cmd"
 )
 
 func main() {
-	fmt.Println("main")
 	cmd.Execute()
 }
