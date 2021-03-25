@@ -21,9 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import (
-	"gridtodo/cmd"
-)
+import "github.com/h64m1/gridtodo/cmd"
 
 func main() {
 	cmd.Execute()

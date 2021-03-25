@@ -1,4 +1,4 @@
-module gridtodo
+module github.com/h64m1/gridtodo
 
 go 1.16
 

@@ -26,19 +26,9 @@ import (
 	"io/ioutil"
 
 	"github.com/goccy/go-yaml"
+	"github.com/h64m1/gridtodo/todo"
 	"github.com/spf13/cobra"
 )
-
-// 3*3 panel = (3*3 item) * 9
-type Todo struct {
-	Goal  string
-	Panel [9]Panel
-}
-
-// 1 panel = 3*3 item
-type Panel struct {
-	Item [9]string
-}
 
 // generateCmd represents the generate command
 var generateCmd = &cobra.Command{
@@ -61,9 +51,9 @@ var generateCmd = &cobra.Command{
 		// 	yamlName = args[0]
 		// }
 
-		todo := Todo{
+		todo := todo.Todo{
 			Goal:  "",
-			Panel: [9]Panel{},
+			Panel: [9]todo.Panel{},
 		}
 
 		bytes, err := yaml.Marshal(todo)
