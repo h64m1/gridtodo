@@ -1,2 +1,2 @@
-# grid-todo-cli 
+# gridtodo
 
