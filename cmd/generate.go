@@ -22,8 +22,8 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"fmt"
 	"io/ioutil"
+	"log"
 
 	"github.com/goccy/go-yaml"
 	"github.com/h64m1/gridtodo/todo"
@@ -43,36 +43,27 @@ var generateCmd = &cobra.Command{
 	$ gridtodo generate test.yaml
 	which displays markdown table in standard output based on the test.yaml.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("generate called")
-		// var yamlName string
-		// if len(args) == 0 {
-		// 	yamlName = "todo.yaml"
-		// } else {
-		// 	yamlName = args[0]
-		// }
+		var yamlFile string
+		if len(args) == 0 {
+			yamlFile = "todo.yaml"
+		} else {
+			yamlFile = args[0]
+		}
 
 		todo := todo.Todo{
 			Goal:  "",
 			Panel: [9]todo.Panel{},
 		}
 
-		bytes, err := yaml.Marshal(todo)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(string(bytes))
-
-		buf, err := ioutil.ReadFile("test.yml")
-		if err != nil {
-			return
-		}
-
-		err = yaml.Unmarshal([]byte(buf), &todo)
+		data, err := yaml.Marshal(todo)
 		if err != nil {
 			panic(err)
 		}
 
-		fmt.Printf("%v\n", todo)
+		err = ioutil.WriteFile(yamlFile, data, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
 	},
 }
 
