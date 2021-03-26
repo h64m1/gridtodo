@@ -24,6 +24,7 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 
 	"github.com/goccy/go-yaml"
@@ -52,7 +53,7 @@ var showCmd = &cobra.Command{
 
 		buf, err := ioutil.ReadFile(yamlFile)
 		if err != nil {
-			return
+			log.Fatal(err)
 		}
 
 		grid := todo.Todo{
