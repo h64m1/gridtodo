@@ -35,13 +35,6 @@ var rootCmd = &cobra.Command{
 	gridtoto is a command line tool to create a matrix composed of cells (Mandal-Art),
 	which displaying relevant keywords you come up with, from a yaml file.
 	gridtodo command generate a matrix of keywords with markdown table format.
-
-* convert yaml to markdown table
-	Convert a yaml file to markdown table by 'show' command
-	$ gridtodo show test.yaml
-
-	Redirect to markdown file in order to export resulting markdown table.
-	$ gridtodo show test.yaml > test.md
 	`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
