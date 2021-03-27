@@ -17,7 +17,7 @@ func (md Markdown) Table() string {
 }
 
 // CreateMarkdownRow create 1 row of markdown table format from Panel
-func CreateMarkdownRow(row int, panelRow int, todo Todo) string {
+func CreateMarkdownRow(row int, panelRow int, grid Todo) string {
 	if row < 0 || row > 2 {
 		fmt.Fprintln(os.Stderr, "Error: row should be 0, 1, or 2")
 		return ""
@@ -26,12 +26,13 @@ func CreateMarkdownRow(row int, panelRow int, todo Todo) string {
 	panelOffset := panelRow * 3
 	centerid := panelOffset
 
-	panel := todo.Panel
+	panel := grid.Panel
 	center := panel[4]
 	left := panel[0+panelRow*3]
 	middle := panel[1+panelRow*3]
 	right := panel[2+panelRow*3]
 
+	goal := Escape(grid.Goal)
 	l := left.EscapeCell()
 	m := middle.EscapeCell()
 	r := right.EscapeCell()
@@ -51,7 +52,7 @@ func CreateMarkdownRow(row int, panelRow int, todo Todo) string {
 		b = append(b, "|"...)
 		if row == 1 && i == 1 {
 			if panelRow == 1 {
-				b = append(b, []byte(todo.Goal)...)
+				b = append(b, []byte(goal)...)
 			} else {
 				b = append(b, c[centerid]...)
 				centerid++
@@ -75,13 +76,13 @@ func CreateMarkdownRow(row int, panelRow int, todo Todo) string {
 }
 
 // Convert convert given todo grid string (9*9 string) into markdown table with 9 rows
-func Convert(todo Todo) Markdown {
+func Convert(grid Todo) Markdown {
 	md := Markdown{}
 
 	for i := 0; i < 3; i++ {
-		md.Row[0+i*3] = CreateMarkdownRow(0, i, todo)
-		md.Row[1+i*3] = CreateMarkdownRow(1, i, todo)
-		md.Row[2+i*3] = CreateMarkdownRow(2, i, todo)
+		md.Row[0+i*3] = CreateMarkdownRow(0, i, grid)
+		md.Row[1+i*3] = CreateMarkdownRow(1, i, grid)
+		md.Row[2+i*3] = CreateMarkdownRow(2, i, grid)
 	}
 
 	return md
