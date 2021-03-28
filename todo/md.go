@@ -64,8 +64,8 @@ func CreateMarkdownRow(row int, panelRow int, grid Todo) string {
 				b = append(b, []byte(goal)...)
 			} else {
 				b = append(b, c[centerid]...)
-				centerid++
 			}
+			centerid++
 		} else {
 			b = append(b, m[i+offset]...)
 		}
