@@ -45,7 +45,7 @@ var generateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var yamlFile string
 		if len(args) == 0 {
-			yamlFile = "todo.yaml"
+			yamlFile = "todo.yml"
 		} else {
 			yamlFile = args[0]
 		}
