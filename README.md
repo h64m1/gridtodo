@@ -1,9 +1,7 @@
 # gridtodo
+`gridtodo`: Convert yaml to grid todo with markdown table format
 
 ![](gridtodo-show.png)
-
-
-`gridtodo`: Convert yaml to grid todo with markdown table format
 
 `gridtoto` is a command line tool to create a matrix composed of cells (Mandal-Art), which displaying relevant keywords you come up with, from a yaml file. `gridtodo` command generate a matrix of keywords with markdown table format.
 
